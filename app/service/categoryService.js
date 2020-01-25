@@ -33,3 +33,45 @@ exports.getAllCategory = ()=>{
         })
     })
    }
+
+   exports.getCategoryById = (id)=>{
+    return new Promise((resolve , reject)=>{
+        model.findById({_id:id}).then(found =>{
+            if(!found){
+                resolve({success:false , message:'product category not found !!'})
+            }else{
+                resolve({success:true , message:'product category !!' , data:found})
+            }
+        }).catch(err =>{
+            reject(err);
+        })
+    })
+   }
+
+   exports.UpdateCategory = (id ,data)=>{
+    return new Promise((resolve , reject)=>{
+        model.findOneAndUpdate({_id:id} ,{name:data.name}).then(found =>{
+            if(!found){
+                resolve({success:false , message:'product category not updated !!'})
+            }else{
+                resolve({success:true , message:'product category updated!!'})
+            }
+        }).catch(err =>{
+            reject(err);
+        })
+    })
+   }
+
+   exports.deleteCategory = (id )=>{
+    return new Promise((resolve , reject)=>{
+        model.findOneAndRemove({_id:id}).then(found =>{
+            if(!found){
+                resolve({success:false , message:'product category not deleted !!'})
+            }else{
+                resolve({success:true , message:'product category deleted!!'})
+            }
+        }).catch(err =>{
+            reject(err);
+        })
+    })
+   }
