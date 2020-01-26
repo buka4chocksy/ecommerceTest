@@ -57,13 +57,16 @@ exports.getAllProducts = () => {
 };
 
 exports.getProductById = (id)=>{
+    console.log(id , 'hmmmmmmmmmmmmmm')
     return new Promise((resolve , reject)=>{
         model.findById({_id:id}).then(found =>{
             if(found){
-                resolve({ success: true, message: result });   
+                resolve({ success: true, message: found });   
             }else{
-                resolve({ success: false, message: "No product found" });  
+                resolve({ success: false, message: "product not found" });  
             }
+        }).catch(err =>{
+            reject(err);
         })
     })
 }
