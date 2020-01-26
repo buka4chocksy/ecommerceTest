@@ -1,5 +1,4 @@
 var categoryController = require('../Controller/categoryController');
-//var middleware = require('../middleware/AuthMiddleware');
 var router = require('express').Router();
 
 module.exports = function () {
