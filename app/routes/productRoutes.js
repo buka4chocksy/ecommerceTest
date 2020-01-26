@@ -6,6 +6,7 @@ module.exports = function () {
     const prodCtrl = new productController();
     router.post('/', middleware.upload.single('image'), prodCtrl.create);
     router.get('/', prodCtrl.getAllProducts);
+    router.get('/single', prodCtrl.getProduct);
   
 
     return router;
