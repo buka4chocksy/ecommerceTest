@@ -5,8 +5,9 @@ var productSchema = new schema({
     Description :{type:String},
     Price :{type:Number},
     Category :{type: mongoose.SchemaTypes.ObjectId , ref:'category'},
-    Image : {type:String},
     Color : {type:String},
+    ImageUrl :{type:String , default:''},
+    ImageID :{type:String , default:''},
 
 })
 
