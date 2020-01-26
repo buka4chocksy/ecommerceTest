@@ -36,4 +36,15 @@ module.exports = productController = function() {
         res.json(err);
       });
   };
+
+  this.getProduct = (req, res) => {
+    service
+      .getProductById(req.query.id)
+      .then(data => {
+        res.json(data);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  };
 };
