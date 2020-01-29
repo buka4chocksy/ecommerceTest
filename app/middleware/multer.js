@@ -6,9 +6,9 @@ var storage = multer.diskStorage({
          console.log("storage for multer", file);
         //Sets destination for fileType
         if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png' || file.mimetype === 'image/jpg') {
-            callback(null, '');
+            callback(null, './uploads/images/');
         } else {
-            callback(null, '');
+            callback(null, './uploads/pdfs/');
         }
     },
     filename: function (req, file, callback) {

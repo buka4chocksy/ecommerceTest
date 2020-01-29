@@ -6,10 +6,12 @@ cloudinary.config({
     api_secret: process.env.API_SECRET
 });
 
+
 exports.uploadToCloud = function(filename){
     return new Promise((resolve, reject) => {
         cloudinary.uploader.upload(filename, function(result)
         {
+            console.log("cloud", result);
             resolve({url: result.secure_url, ID: result.public_id});
         }, {resource_type: "auto"});
     });
